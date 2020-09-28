@@ -48,6 +48,10 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6fR-2m-HpH" secondAttribute="trailing" constant="20" id="znn-38-DeA"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mealNameLabel" destination="lWV-za-2w1" id="J3C-g3-swC"/>
+                        <outlet property="nameTextField" destination="GcO-Hs-xpf" id="LcV-Xz-6Ws"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
