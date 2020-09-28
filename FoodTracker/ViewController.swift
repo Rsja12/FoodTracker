@@ -18,6 +18,11 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    //MARK: Actions
+    @IBAction func setDefaultLabelText(_ sender: UIButton) {
+        mealNameLabel.text = "Default Text"
+    }
+    
 
 }
 
