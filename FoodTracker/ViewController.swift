@@ -35,6 +35,16 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
 
     //MARK: Actions
     @IBAction func selectImageFromPhotoLibrary(_ sender: UITapGestureRecognizer) {
+        // Hide Keyboard (if user taps image view while typing in the keyboard).
+        nameTextField.resignFirstResponder()
+        
+        // UIImagePickerController - a view controller that lets user pick media from their photo library.
+        let imagePickerController = UIImagePickerController()
+        // only allows photos to be picked, not taken.
+        imagePickerController.sourceType = .photoLibrary
+        // Make sure ViewController is notified when user picks an image
+        imagePickerController.delegate = self
+        present(imagePickerController, animated: true, completion: nil)
     }
     
     @IBAction func setDefaultLabelText(_ sender: UIButton) {
