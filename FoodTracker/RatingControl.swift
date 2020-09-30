@@ -11,7 +11,12 @@ import UIKit
     
     //MARK: Properties
     private var ratingButtons = [UIButton]()
-    var rating = 0
+    
+    var rating = 0 {
+        didSet {
+            updateButtonSelectionStates()
+        }
+    }
     
     @IBInspectable var starSize: CGSize = CGSize(width: 44.0, height: 44.0) {
         didSet {
@@ -92,6 +97,13 @@ import UIKit
             
             // Add the new button to the ratingButtons array
             ratingButtons.append(button)
+        }
+    }
+    
+    private func updateButtonSelectionStates() {
+        for (index, button) in ratingButtons.enumerated() {
+            // buttons with selected state should be all buttons whose index is < than the rating
+            button.isSelected = index < rating
         }
     }
 
