@@ -109,6 +109,29 @@ import UIKit
         for (index, button) in ratingButtons.enumerated() {
             // buttons with selected state should be all buttons whose index is < than the rating
             button.isSelected = index < rating
+            
+            // Set the hint string for the currently selected star
+            let hintString: String?
+            if rating == index + 1 {
+                hintString = "Tap to reset the rating to zero."
+            } else {
+                hintString = nil
+            }
+            
+            // Calculate the value string
+            let valueString: String
+            switch (rating) {
+            case 0:
+                valueString = "No rating set."
+            case 1:
+                valueString = "1 star set."
+            default:
+                valueString = "\(rating) stars set."
+            }
+            
+            // Assign hint and value strings
+            button.accessibilityHint = hintString
+            button.accessibilityValue = valueString
         }
     }
 
