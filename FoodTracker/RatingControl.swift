@@ -38,7 +38,20 @@ import UIKit
     
     //MARK: Button Action
     @objc func ratingButtonTapped(button: UIButton) {
-        print("Button pressed!")
+        // Find the index of the the button the user taps
+        guard let index = ratingButtons.firstIndex(of: button) else {
+            fatalError("The button, \(button) is not in the ratingButtons array: \(ratingButtons)")
+        }
+        
+        // Calculate rating
+        let selectedRating = index + 1
+        
+        // If user selects current rating, reset the rating
+        if selectedRating == rating {
+            rating = 0
+        } else {
+            rating = selectedRating
+        }
     }
     
     //MARK: Private Methods
