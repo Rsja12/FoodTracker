@@ -75,7 +75,7 @@ import UIKit
         let emptyStar = UIImage(named: "emptyStar", in: bundle, compatibleWith: self.traitCollection)
         let highlightedStar = UIImage(named: "highlightedStar", in: bundle, compatibleWith: self.traitCollection)
         
-        for _ in 0..<starCount {
+        for index in 0..<starCount {
             // Create the button
             let button = UIButton()
             button.setImage(emptyStar, for: .normal)
@@ -88,6 +88,9 @@ import UIKit
             button.heightAnchor.constraint(equalToConstant: starSize.height).isActive = true
             button.widthAnchor.constraint(equalToConstant: starSize.width).isActive = true
             
+            // Set accessibility label
+            button.accessibilityLabel = "Set the \(index + 1) star rating"
+            
             // Setup the button action
             button.addTarget(self, action:
                                 #selector(RatingControl.ratingButtonTapped(button:)), for: .touchUpInside)
@@ -98,6 +101,8 @@ import UIKit
             // Add the new button to the ratingButtons array
             ratingButtons.append(button)
         }
+        
+        updateButtonSelectionStates()
     }
     
     private func updateButtonSelectionStates() {
