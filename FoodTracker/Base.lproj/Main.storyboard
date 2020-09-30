@@ -16,8 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="6fR-2m-HpH">
-                                <rect key="frame" x="20" y="63.999999999999972" width="335" height="443.33333333333326"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="6fR-2m-HpH">
+                                <rect key="frame" x="20" y="64" width="335" height="561.33333333333337"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lWV-za-2w1">
                                         <rect key="frame" x="0.0" y="0.0" width="85.666666666666671" height="20.333333333333332"/>
@@ -47,6 +47,9 @@
                                             <outletCollection property="gestureRecognizers" destination="0Ke-Hh-Oxa" appends="YES" id="h09-RI-hSO"/>
                                         </connections>
                                     </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m5d-S7-quy" customClass="RatingControl" customModule="FoodTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="451.33333333333337" width="200" height="110"/>
+                                    </stackView>
                                 </subviews>
                                 <gestureRecognizers/>
                                 <constraints>
