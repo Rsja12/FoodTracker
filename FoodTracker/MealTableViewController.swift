@@ -30,9 +30,18 @@ class MealTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        // Table view cells are reused and should be dequeued using a cell identifier.
+        let cellIdentifier = "MealTableViewCell"
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? MealTableViewCell else {
+            fatalError("The dequed cell is not an instance of MealTableViewCell")
+        }
+        // Fetch the appropriate meal for the data source layout
+        let meal = meals[indexPath.row]
+        
+        cell.nameLabel.text = meal.name
+        cell.photoImageView.image = meal.photo
+        cell.ratingControl.rating = meal.rating
 
         return cell
     }
