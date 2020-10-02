@@ -74,8 +74,8 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         let photo = photoImageView.image
         let rating = ratingControl.rating
         
-        // Set the meal to be passed back to MealTableViewController after the unwind segue
-        let meal = Meal(name: name, photo: photo, rating: rating)
+        // Set self.meal property to be passed back to MealTableViewController after the unwind segue
+        meal = Meal(name: name, photo: photo, rating: rating)
     }
 
     //MARK: Actions
