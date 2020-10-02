@@ -35,6 +35,11 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         return true
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        // Disable save button while user is typing
+        saveButton.isEnabled = false
+    }
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
         
     }
@@ -92,7 +97,13 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         // Make sure ViewController is notified when user picks an image
         imagePickerController.delegate = self
         present(imagePickerController, animated: true, completion: nil)
-    }    
+    }
+    
+    //MARK: Private Methods
+    private func savebuttonState() {
+        let text = nameTextField.text ?? ""
+        saveButton.isEnabled = !text.isEmpty
+    }
 
 }
 
