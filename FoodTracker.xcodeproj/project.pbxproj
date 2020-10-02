@@ -98,11 +98,11 @@
 			children = (
 				05F372F825228664005D9ABE /* AppDelegate.swift */,
 				05F372FA25228664005D9ABE /* SceneDelegate.swift */,
-				05F372FC25228664005D9ABE /* MealViewController.swift */,
 				0582B717252511CC0073D39F /* Meal.swift */,
+				05F372FC25228664005D9ABE /* MealViewController.swift */,
 				0582B7142524C4A90073D39F /* RatingControl.swift */,
-				0544458E252647130001DCF1 /* MealTableViewCell.swift */,
 				05444594252652180001DCF1 /* MealTableViewController.swift */,
+				0544458E252647130001DCF1 /* MealTableViewCell.swift */,
 				05F372FE25228664005D9ABE /* Main.storyboard */,
 				05F3730125228667005D9ABE /* Assets.xcassets */,
 				05F3730325228667005D9ABE /* LaunchScreen.storyboard */,
