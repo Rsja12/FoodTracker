@@ -26,6 +26,9 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         
         // Handle the text field's user input through delegate callbacks.
         nameTextField.delegate = self
+        
+        // Make sure save button isn't enabled until there's valid text
+        updateSavebuttonState()
     }
     
     //MARK: UITextFieldDelegate
@@ -41,7 +44,8 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        
+        updateSavebuttonState()
+        navigationItem.title = textField.text
     }
     
     //MARK: UIImagePickerControllerDelegate
@@ -82,7 +86,11 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         // Set self.meal property to be passed back to MealTableViewController after the unwind segue
         meal = Meal(name: name, photo: photo, rating: rating)
     }
-
+    
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     //MARK: Actions
     @IBAction func selectImageFromPhotoLibrary(_ sender: UITapGestureRecognizer) {
         // Hide Keyboard (if user taps image view while typing in the keyboard).
@@ -100,7 +108,7 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     }
     
     //MARK: Private Methods
-    private func savebuttonState() {
+    private func updateSavebuttonState() {
         let text = nameTextField.text ?? ""
         saveButton.isEnabled = !text.isEmpty
     }
