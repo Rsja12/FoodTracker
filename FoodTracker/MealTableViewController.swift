@@ -76,8 +76,10 @@ class MealTableViewController: UITableViewController {
         super.prepare(for: segue, sender: sender)
         
         switch (segue.identifier ?? "") {
+        
         case "AddItem":
             os_log("Adding a new meal.", log: OSLog.default, type: .debug)
+            
         case "ShowDetail":
             guard let mealVC = segue.destination as? MealViewController else {
                 fatalError("Unexpected destination: \(segue.destination)")
