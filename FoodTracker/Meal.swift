@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import os.log
 
-class Meal {
+class Meal: NSObject, NSCoding {
     
     //MARK: Properties
     var name: String
@@ -15,7 +16,7 @@ class Meal {
     var rating: Int
     
     //MARK: Types
-    struct propertyKeys {
+    struct PropertyKey {
         static let name = "name"
         static let photo = "photo"
         static let rating = "rating"
@@ -37,5 +38,30 @@ class Meal {
         self.name = name
         self.photo = photo
         self.rating = rating
+    }
+    
+    //MARK: NSCoding
+    
+    // Encodes Meal properties for archiving
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(name, forKey: PropertyKey.name)
+        aCoder.encode(photo, forKey: PropertyKey.photo)
+        aCoder.encode(rating, forKey: PropertyKey.rating)
+    }
+    
+    // Initializer to load data
+    required convenience init?(coder aDecoder: NSCoder) {
+        // The name is required. If we can't decode the name string, the initializer should fail
+        guard let name = aDecoder.decodeObject(forKey: PropertyKey.name) as? String else {
+            os_log("Unable to decode the name for a Meal object.", log: OSLog.default, type: .debug)
+            return nil
+        }
+        
+        let photo = aDecoder.decodeObject(forKey: PropertyKey.photo) as? UIImage
+        
+        let rating = aDecoder.decodeInteger(forKey: PropertyKey.rating)
+        
+        // must call designated initializer
+        self.init(name: name, photo: photo, rating: rating)
     }
 }
